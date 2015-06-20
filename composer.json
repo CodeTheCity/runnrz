@@ -1,0 +1,13 @@
+{
+	"minimum-stability": "dev",
+    "require": {
+        "phalcon/devtools": "dev-master",
+        "sabre/xml" : "*",
+        "ezyang/htmlpurifier": "dev-master",
+        "bshaffer/oauth2-server-php": "~1.7",
+        "elasticsearch/elasticsearch": "~1.0",
+		"keen-io/keen-io": "~2.5",
+		"mikehaertl/phpwkhtmltopdf": "*",
+		"swiftmailer/swiftmailer" : "5.3"
+    }
+}

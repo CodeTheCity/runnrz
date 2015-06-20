@@ -1,0 +1,257 @@
+/*
+	
+	## LOVELY SASS STUFF ##
+
+*/
+
+/**
+*	Imports
+**/
+
+@import "_libs.min.css";
+@import "_golden-bootstrap.css";
+
+/**
+*	Colors
+**/
+
+$color-black: #141212;
+$primary-color: #0099cc;
+$color-text-black: #444;
+$color-orange: #ff6600;
+$color-blue:#0099cc;
+$color-white:#fff;
+$color-form-grey:rgba(189, 189, 187, 0.6);
+$color-light-grey: #929292;
+$color-line-grey:#a9a9a9;
+$color-form-text:#8c8c8c;
+$color-form-bg:#e5e5e5;
+
+/**
+*	Font Setup 
+**/
+
+$font-family: 'Noto Sans', Helvetica, Arial, sans-serif;
+$serif-font-family: 'Noto Serif', Helvetica, Arial, sans-serif;
+$default-font-size: 16; //Default
+
+$light: 300;
+$medium: 400;
+$bold: 700;
+$black: 900;
+
+
+/**
+*	Functions 
+**/
+
+/* PX -> EM */
+@function em($pixels, $context: $default-font-size){
+  @return #{$pixels/$context}
+}
+
+
+@mixin maintain-ratio($ratio: 1 1) {
+	@if length($ratio) < 2 or length($ratio) > 2 {
+		@warn "$ratio must be a list with two values.";
+	}
+	 
+	$width: 100%;
+	$height: percentage(nth($ratio, 2) / nth($ratio, 1));
+	width: $width;
+ 	height: 0;
+	padding-bottom: $height;
+}
+
+/* SASS vertical align placement */
+
+%vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin font-size($sizeValue: 1.6) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
+}
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@mixin rem-fallback($property, $values...) {
+  $context: $default-font-size;
+  $max: length($values);
+  $pxValues: '';
+  $remValues: '';
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $pxValues: #{$pxValues + $value}px;
+
+    @if $i < $max {
+      $pxValues: #{$pxValues + " "};
+    }
+  } 
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $remValues: #{$remValues + $value/$context}rem;
+
+    @if $i < $max {
+      $remValues: #{$remValues + " "};
+    }
+  } 
+  
+  #{$property}: $pxValues; 
+  #{$property}: $remValues; 
+}
+
+/* BOOTSTRAP HACKS */
+
+
+.no-gutter > [class*='col-'], .no-gutter {
+    padding-right:0;
+    margin-left:0;
+    margin-right:0;
+    padding-left:0;
+}
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.modal-backdrop{
+	height:100%;
+	width:100%;
+}
+
+.modal-dialog, .modal-content{
+	z-index:9999;
+}
+
+.left{
+	float:left !important;
+}
+
+.right{
+	float:right !important;
+}
+
+body { padding-top: 70px; }
+
+.carousel-control.left, .carousel-control.right {
+    background-image: none
+}
+
+/* HTML & BODY */
+
+body{
+    font-family: $font-family;
+    font-size:16px;
+}
+
+/**
+*	SITE - BOOTSTRAP
+**/
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+
+.bootstrap{
+
+    /* GLOBAL */
+
+    .public-nav{
+        @include rem-fallback(margin-top,82);
+    }
+
+    /* HOMEPAGE */
+
+    .pages{
+
+        #hero{
+
+            .jumbotron{
+                @include rem-fallback(margin-bottom,90);
+            }
+
+            #imaginary_container{
+                @include rem-fallback(margin-top,30);
+            }
+
+            .stylish-input-group{
+
+                .input-group-addon{
+                    background: white !important; 
+                }
+
+                .form-control{
+                    border-right:0; 
+                    box-shadow:0 0 0; 
+                    border-color:#ccc;
+                }
+
+                button{
+                    border:0;
+                    background:transparent;
+                }
+            }
+        }
+
+        #main{
+
+            #carousel-example-generic, a img{
+                @include rem-fallback(margin-bottom,90);
+            }
+
+        }
+
+        #sidebar{
+
+            a{
+                display:block;
+                @include rem-fallback(margin,0,0,90,0);
+            }
+
+        }
+
+    }
+
+    .ui-select-bootstrap.ng-dirty.ng-invalid > button.btn.ui-select-match {
+        border-color: #D44950;
+    }
+
+    /* SEARCH */
+
+    #map{
+        width:100%;
+        height:500px;
+    }
+
+}

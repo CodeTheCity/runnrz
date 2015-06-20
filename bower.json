@@ -1,0 +1,47 @@
+{
+  "name": "Runnrz App",
+  "version": "0.0.1",
+  "authors": [
+    "Runnrz.co.uk"
+  ],
+  "description": "Runnrz App",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": ">=3",
+    "angular": ">=1.4.0",
+    "angular-resource": "~1.4.0",
+    "angular-animate": ">=1.2",
+    "angular-mocks": ">=1.2",
+    "angular-bootstrap": "~0.12.1",
+    "angular-ui-utils": ">=0.1.1",
+    "angular-ui-router": "~0.2.14",
+    "placeholders": ">=4.0.1",
+    "holderjs": ">=2.6.0",
+    "angular-holderjs": "~1.1.0",
+    "angular-sanitize": ">=1.4.0",
+    "angular-cookies": "~1.4.0",
+    "angular-ladda": "~0.2.2",
+    "angular-touch": "~1.4.0",
+    "ladda": "~0.9.8",
+    "angular-route": "~1.4.0",
+    "angular-ui-select": "*",
+    "angular-loading-bar": "~0.7.1",
+    "ngstorage": "~0.3.0",
+    "angular-moment": "~0.10.1",
+    "he": "~0.5.0",
+    "oauth-ng": "~0.4.0",
+    "mapbox.js": "~2.1.9",
+    "ngmap": "~1.7.11"
+  },
+  "devDependencies": {
+    "livereload-js": "~2.2.1"
+  }
+}

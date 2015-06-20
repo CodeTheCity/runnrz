@@ -1,0 +1,6 @@
+<div ng-controller="DashController" class="login pages" data-ng-init="authCheck()">
+
+    <alert ng-repeat="alert in alerts" type="[{[alert.type]}]" close="closeAlert($index)">[{[alert.msg]}]</alert>
+
+	<h1>the dashboard</h1>
+</div>

@@ -1,0 +1,9 @@
+job_board/vendor
+job_board/node_modules
+job_board/cache
+job_board/webgrind
+job_board/public/js/libs
+vendor
+node_modules
+cache
+public/js/libs
